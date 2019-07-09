@@ -1,8 +1,7 @@
-@extends('layouts.index')
-
-@section('blog')
-
+<br>    
     <div class="container">
+        <h2>Blog</h2>
+        <br>
         <div class="container">
             <div class="row">
                 @foreach($posts as $post)
@@ -24,8 +23,6 @@
                 @endforeach
             </div>
         </div>
-        {{ $posts->links() }}
+
+        <a class="sitebtn btn btn-dark" href="{{ url('blog') }}">Go to blog</a>
     </div>
-    <br>
-    <a href="{{ url('/') }}" class="sitebtn btn btn-dark"><i class="fas fa-backward"></i></a>
-@endsection

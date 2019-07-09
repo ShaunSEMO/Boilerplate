@@ -1,0 +1,53 @@
+.each-post {
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+    padding: 10px 10px;
+    border-radius: 10px;
+    background-color: white;
+
+}
+
+.each-post-small {
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+    padding: 10px 10px;
+    border-radius: 10px;
+    background-color: white;
+
+}
+
+.each-post h3, .each-post p, .each-post-small h3, .each-post-small p {
+    color: black;
+}
+
+.each-post-small a {
+    color: lightseagreen;
+}
+
+.each-post a {
+    color: darkcyan;
+    text-decoration: none;
+}
+
+#date-div {
+    background-color: black !important;
+    border-radius: 7px;
+    width: 100px !important;
+}
+
+#date-div * {
+    color: white !important;
+}
+
+.post {
+    margin: auto;
+}
+
+
+@media (min-width: 600px) {
+    .post {
+        width: 500px;
+    }
+
+    .each-post {
+        width: 600px;
+    }
+  }

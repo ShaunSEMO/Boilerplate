@@ -2,9 +2,12 @@
 
 @section('content')
 
-<div class="row justify-content-md-center">
+<div class="container row justify-content-md-center">
 
     <div class="container">
+        <a href="{{ url('/') }}" class="btn btn-primary">Go to website</a>
+        <br>
+        <br>
         <h1>Admin Panel</h1>
         <div class="accordion" id="accordionExample">
         <div class="card">
@@ -103,6 +106,9 @@
             </div>
           </div>
         </div>
+
+
+        
         <div class="card">
                 <div class="card-header" id="headingFour">
                   <h5 class="mb-0">
@@ -145,6 +151,48 @@
                       </div>
                 </div>
               </div>
+
+
+              <div class="card">
+                  <div class="card-header" id="headingFive">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                            <h3>Following</h3>
+                      </button>
+                    </h5>
+                  </div>
+              
+                  <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                        <div style="text-align:center" class="card-body">
+                              <div class="container">
+                                  @foreach ($followings as $following)
+                                  <a href="{{ url('/t@k3m3t0@dm!n/following/'.$following->id.'/edit') }}" class="btn btn-warning">Edit numbers</a>
+                                    <br>
+                                    <br>
+                                    <div class="container">
+                                        <div class="row">
+                                          <div class="col-sm">
+                                            <h3>{{$following->followers}}</h3>
+                                            <br>
+                                            <p>Followers</p>
+                                          </div>
+                                          <div class="col-sm">
+                                              <h3>{{$following->impressions}}</h3>
+                                              <br>
+                                              <p>Impressions</p>
+                                          </div>
+                                          <div class="col-sm">
+                                              <h3>{{$following->reach}}</h3>
+                                              <br>
+                                              <p>Reach</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  @endforeach
+                              </div>
+                        </div>
+                  </div>
+                </div>
     </div>
 </div>
 

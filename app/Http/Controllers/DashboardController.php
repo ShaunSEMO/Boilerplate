@@ -7,6 +7,7 @@ use App\Post;
 use App\Picture;
 use App\About;
 use App\Item;
+use App\following;
 use DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -36,8 +37,10 @@ class DashboardController extends Controller
         $posts = DB::table('posts')->orderBy('id', 'DESC')->paginate(3);
         $pictures = DB::table('pictures')->orderBy('id', 'DESC')->paginate(3);
         $items = DB::table('items')->orderBy('id', 'DESC')->paginate(3);
+        $followings = DB::table('followings');
+        $followings = $followings->get();
 
-        return view('dashboard.admin', compact(['posts', 'pictures', 'abouts', 'items']));
+        return view('dashboard.admin', compact(['posts', 'pictures', 'abouts', 'items', 'followings']));
     }
 
 
@@ -201,7 +204,7 @@ class DashboardController extends Controller
         if($request->hasFile('image')) {
             //Get filename with extension
             $filenameWithExt = $request->file('image')->getClientOriginalName();
-            $path = $request->file('image')->storeAs('public/img/blogimages', $filenameWithExt);
+            $path = $request->file('image')->storeAs('public/img/aboutimages', $filenameWithExt);
 
             //Get just filename
             // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
@@ -216,7 +219,7 @@ class DashboardController extends Controller
         }
 
         $about = About::find($id);
-        $about->image = 'storage/img/blogimages/'.$request->file('image')->getClientOriginalName();
+        $about->image = 'storage/img/aboutimages/'.$request->file('image')->getClientOriginalName();
         $about->body = $request->input('body');
         $about->save();
 
@@ -309,5 +312,34 @@ class DashboardController extends Controller
         $item->delete();
         return redirect('/t@k3m3t0@dm!n');
     }
+
+
+    // Following functions
+
+    public function editFollowing($id) {
+        $followings = following::find($id);
+        return view('dashboard.following.edit', compact(['followings']));
+    }
+
+    public function updateFollowing(Request $request, $id) {
+
+        $this->validate($request, [
+            'followers' => 'required',
+            'impressions' => 'required',
+            'reach' => 'required',
+        ]);
+
+
+        $followings = following::find($id);
+
+        $followings->followers = $request->input('followers');
+        $followings->impressions = $request->input('impressions');
+        $followings->reach = $request->input('reach');
+        $followings->save();
+
+        return redirect('/t@k3m3t0@dm!n');
+          
+    }
+
     
 }

@@ -1,0 +1,10 @@
+.carousel{
+    overflow: hidden;
+    margin: auto;
+}
+
+@media (min-width: 800px) {
+    .carousel{
+        width: 600px;
+    }
+}

@@ -3,7 +3,7 @@
 @section('gallery')
 
     <div class="container">
-        <div style="width: 280px; margin: auto;" class="row">
+        <div style=" margin: auto;" class="row">
             @foreach($pictures as $picture)
             <div data-aos="flip-down" class="col-lg-6">
                 <br>
@@ -13,6 +13,8 @@
         </div>
         <br>
         {{ $pictures->links() }}
+        <br>
+        <a href="{{ url('/') }}" class="sitebtn btn btn-dark"><i class="fas fa-backward"></i></a>
     </div>
 
 @endsection

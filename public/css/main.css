@@ -8,7 +8,7 @@ body {
 }
 
 .custom-card-glass {
-    box-shadow: 0px 0px 30px rgba(255, 0, 149, 0.65);
+    box-shadow: 0px 0px 30px rgba(255, 0, 149, 0.28);
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0);
     /* margin-top: 20px; */
@@ -21,16 +21,29 @@ body {
     /* margin-top: 20px; */
 }
 
+.readmore {
+    color: cyan !important;
+}
+
+.nicepad {
+    padding: 7px 7px !important;
+}
+
 .custom-card-padded {
     padding: 20px 20px;
 }
 
 .custom-card * {
-    color: black !important;
+    color: black;
 }
 
 body * {
     color: black;
+    letter-spacing: 3px;
+}
+
+.following * {
+    letter-spacing: 1px;
 }
 
 .sitebtn {
@@ -50,17 +63,17 @@ footer {
 
 footer * {
     color: white;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .spyder {
     color: rgb(255, 0, 0);
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .webs {
     color: rgb(104, 232, 255);
-    font-size: 12px;
+    font-size: 15px;
 }
 
 @media (min-width: 700px) {

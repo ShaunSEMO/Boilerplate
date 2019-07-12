@@ -31,10 +31,12 @@
     background-color: black !important;
     border-radius: 7px;
     width: 100px !important;
+    
 }
 
 #date-div * {
     color: white !important;
+    letter-spacing: 1px;
 }
 
 .post {
